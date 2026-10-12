@@ -7,6 +7,7 @@ import { recordScreen, reserve, settle } from "@/lib/server/ledger";
 import { inspectPdf } from "@/lib/server/pdf";
 import { classify, GateError, scanText } from "@/lib/server/screen";
 import { readSession } from "@/lib/server/session";
+import { store } from "@/lib/server/store";
 import { issueTicket } from "@/lib/server/tickets";
 import { normalizeOutline } from "@/lib/spec/normalize";
 
@@ -51,10 +52,13 @@ export async function POST(req: Request) {
     }
     hold = await reserve("read", ipTag, sidTag);
   } catch (err) {
+    // A refused upload is not kept.
+    if (input?.blobPath) await store.del([input.blobPath]).catch(() => {});
     return errorResponse(err);
   }
   const src = input.src;
   const doc = input.hash;
+  const blobPath = input.blobPath;
 
   return ndjson(async (send) => {
     let settled = false;
@@ -65,6 +69,7 @@ export async function POST(req: Request) {
       if (!verdict.ok) {
         await settle(hold, 0);
         settled = true;
+        if (blobPath) await store.del([blobPath]).catch(() => {});
         send({ type: "error", code: "rejected", message: verdict.reason });
         return;
       }

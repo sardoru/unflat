@@ -82,6 +82,19 @@ export const store = {
     return out;
   },
 
+  /** Pathnames with upload times (for cleanup). */
+  async listAged(prefix: string): Promise<{ path: string; at: number }[]> {
+    if (!ENV.blob) return [...memStore.keys()].filter((k) => k.startsWith(prefix)).map((path) => ({ path, at: Date.now() }));
+    const out: { path: string; at: number }[] = [];
+    let cursor: string | undefined;
+    do {
+      const r = await list({ prefix, limit: 1000, cursor });
+      out.push(...r.blobs.map((b) => ({ path: b.pathname, at: new Date(b.uploadedAt).getTime() })));
+      cursor = r.hasMore ? r.cursor : undefined;
+    } while (cursor);
+    return out;
+  },
+
   async del(paths: string[]): Promise<void> {
     if (!paths.length) return;
     if (!ENV.blob) {
