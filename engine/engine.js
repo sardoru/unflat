@@ -436,8 +436,12 @@ function placeLabels(w, h){ var top = calloutEl.hidden ? 4 : calloutEl.offsetTop
     L.s = s; });
   /* marks: pushed out from the middle of the view, then spread so two never sit on each other */
   var marks = labels.filter(function(L){ return L.obj; });
-  marks.forEach(function(L, j){ var cx = w / 2, cy = h / 2; var dx = L.s[0] - cx, dy = L.s[1] - cy, dl = Math.hypot(dx, dy) || 1; L.dx = dx / dl * 34; L.dy = dy / dl * 34;
-    for (var k = 0; k < j; k++){ var M = marks[k]; var ox = (L.s[0] + L.dx) - (M.s[0] + M.dx), oy = (L.s[1] + L.dy) - (M.s[1] + M.dy); if (Math.hypot(ox, oy) < 26){ var px = -dy / dl, py = dx / dl; L.dx += px * 28; L.dy += py * 28; } } });
+  marks.forEach(function(L){ var dx = L.s[0] - w / 2, dy = L.s[1] - h / 2, dl = Math.hypot(dx, dy) || 1; L.dx = dx / dl * 34; L.dy = dy / dl * 34; L.px = -dy / dl; L.py = dx / dl; });
+  for (var round = 0; round < 6; round++){ var moved = false;
+    for (var j = 1; j < marks.length; j++) for (var k = 0; k < j; k++){ var A = marks[j], M = marks[k];
+      var ox = (A.s[0] + A.dx) - (M.s[0] + M.dx), oy = (A.s[1] + A.dy) - (M.s[1] + M.dy), d = Math.hypot(ox, oy);
+      if (d < 27){ var ux = d > 0.5 ? ox / d : A.px, uy = d > 0.5 ? oy / d : A.py; A.dx += ux * (28 - d); A.dy += uy * (28 - d); moved = true; } }
+    if (!moved) break; }
   labels.forEach(function(L){ var s = L.s;
     var x = s[0] + (L.dx || 0), y = s[1] + (L.dy || 0); var ew = L.el.offsetWidth, eh = L.el.offsetHeight; x = Math.max(4 + ew / 2, Math.min(w - 4 - ew / 2, x)); y = Math.max(top + eh / 2, Math.min(h - 4 - eh / 2, y)); L.el.style.transform = 'translate(' + (x - ew / 2).toFixed(1) + 'px,' + (y - eh / 2).toFixed(1) + 'px)';
     if (L.ln){ var ddx = s[0] - x, ddy = s[1] - y, len = Math.hypot(ddx, ddy); L.ln.style.display = len > 16 ? 'block' : 'none'; L.ln.style.width = Math.max(0, len - 14).toFixed(1) + 'px'; L.ln.style.transform = 'rotate(' + Math.atan2(ddy, ddx).toFixed(4) + 'rad) translateX(11px)'; } }); }
