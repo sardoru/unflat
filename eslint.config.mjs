@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Vendored anatomy kit (MIT, upstream code) and generated files.
+    "src/lib/iso/**",
+    "src/lib/engine/assets.generated.ts",
+    "public/pdf.worker.min.mjs",
   ]),
 ]);
 

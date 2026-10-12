@@ -216,7 +216,7 @@ var POSEQ = {'upright': new T.Quaternion(), 'on-back': qAxis(1, 0, 0, -90), 'on-
 function poseOf(i){ return (i <= 0 || i >= LAST) ? 'upright' : (STEPS[i].pose || 'upright'); }
 function boxOfKeys(keys){ var bb = new T.Box3(); keys.forEach(function(k){ var o = objs[k]; o.updateMatrixWorld(true); bb.expandByObject(o); }); return bb; }
 world.updateMatrixWorld(true);
-var FB = boxOfKeys(order.filter(function(k){ return true; }));            /* the finished product, product frame */
+var FB = boxOfKeys(order.slice());            /* the finished product, product frame */
 if (FB.isEmpty()) FB.set(new T.Vector3(-u(PS[0] / 2 || 20), 0, -u(PS[2] / 2 || 20)), new T.Vector3(u(PS[0] / 2 || 20), u(PS[1] || 40), u(PS[2] / 2 || 20)));
 var ABB = {}; Object.keys(ASMS).forEach(function(k){ ABB[k] = boxOfKeys(order.filter(function(key){ return objs[key].userData.asm === k; })); });
 function cornersOf(bb){ var a = bb.min, b = bb.max; return [new T.Vector3(a.x, a.y, a.z), new T.Vector3(b.x, a.y, a.z), new T.Vector3(a.x, b.y, a.z), new T.Vector3(a.x, a.y, b.z), new T.Vector3(b.x, b.y, a.z), new T.Vector3(b.x, a.y, b.z), new T.Vector3(a.x, b.y, b.z), new T.Vector3(b.x, b.y, b.z)]; }
@@ -370,7 +370,7 @@ function pulse(partKey){ /* tap a part in the callout: it blinks twice and its o
 }
 /* where a part comes from, in its group's frame */
 function fromLocal(o, page){
-  var ud = o.userData, g = o.parent || MAIN, st = STATES[page][ud.asm || ''] || STATES[page][''];
+  var ud = o.userData, st = STATES[page][ud.asm || ''] || STATES[page][''];
   if (ud.kind === 'tool') return new T.Vector3(0, 0.25 * S, 0);
   if (ud.hw){ var dist = Math.max(u(ud.len) * 3.5, 0.045 * S); return ud.axisV.clone().multiplyScalar(-dist); }
   var w;
@@ -525,7 +525,7 @@ function enter(i, replay){
   $('#bar').style.width = (i / LAST * 100) + '%';
   Array.prototype.forEach.call($('#ticks').children, function(b, j){ b.classList.toggle('done', j < i); });
   where.textContent = i === 0 ? 'Parts' : (i === LAST ? 'Done' : 'Step ' + i + ' of ' + N);
-  if (!replay && !STILL){ try { localStorage.setItem(storageKey, String(i)); } catch (e) {} }
+  if (!replay && !STILL){ try { localStorage.setItem(storageKey, String(i)); } catch { /* storage off: just don't remember */ } }
   current = i;
 }
 var storageKey = 'unflat.' + (OPTS.id || P_.name || 'manual') + '.step';
@@ -586,7 +586,7 @@ function loop(now){
   requestAnimationFrame(loop);
 }
 
-var start = 0; try { start = Math.min(LAST, Math.max(0, parseInt(localStorage.getItem(storageKey) || '0', 10) || 0)); } catch (e) {}
+var start = 0; try { start = Math.min(LAST, Math.max(0, parseInt(localStorage.getItem(storageKey) || '0', 10) || 0)); } catch { /* storage off: start at the parts */ }
 if (hm) start = Math.min(LAST, Math.max(0, parseInt(hm[1], 10)));
 VIEW.copy(CAMS[start].v); resize(); frame(CAMS[start].c, CAMS[start].r); setGroups(STATES[start]); enter(start);
 requestAnimationFrame(loop);

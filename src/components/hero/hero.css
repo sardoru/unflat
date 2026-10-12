@@ -1,0 +1,164 @@
+/* Fig 1 · Flat-pack, unflattened. Scoped to .uf-hero; the kit's tokens come from iso.css. */
+
+.uf-hero {
+  --uf-tape: #232120;
+  --uf-tape-line: var(--anatomy-lo);
+  min-width: 0;
+}
+
+/* Light tokens before the live script has mirrored the page's theme onto the figure. */
+:root[data-theme="light"] .uf-hero.iso:not([data-theme]) {
+  --anatomy-page: #f2f2ef;
+  --anatomy-card: #fbfbfa;
+  --anatomy-text: #57575a;
+  --anatomy-strong: #18181a;
+  --anatomy-muted: #8c8c90;
+  --anatomy-paper: #fbfbfa;
+  --anatomy-face: #ffffff;
+  --anatomy-top: #ffffff;
+  --anatomy-shade-0: #dcdcd9;
+  --anatomy-shade-1: #e5e5e2;
+  --anatomy-shade-2: #ededea;
+  --anatomy-shade-3: #f4f4f1;
+  --anatomy-lit-top: #ffffff;
+  --anatomy-lit-shade: #eeeeeb;
+  --anatomy-hi: #26262a;
+  --anatomy-mid: #8a8a8f;
+  --anatomy-lo: #b4b4b8;
+  --anatomy-faint: #d4d4d6;
+  --anatomy-lit: #000000;
+  --anatomy-halo: #8a8a80;
+  --anatomy-halo-opacity: 0.32;
+  --anatomy-dot: #3a3a3e;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .uf-hero.iso:not([data-theme]) {
+    --anatomy-page: #f2f2ef;
+    --anatomy-card: #fbfbfa;
+    --anatomy-text: #57575a;
+    --anatomy-strong: #18181a;
+    --anatomy-muted: #8c8c90;
+    --anatomy-paper: #fbfbfa;
+    --anatomy-face: #ffffff;
+    --anatomy-top: #ffffff;
+    --anatomy-shade-0: #dcdcd9;
+    --anatomy-shade-1: #e5e5e2;
+    --anatomy-shade-2: #ededea;
+    --anatomy-shade-3: #f4f4f1;
+    --anatomy-lit-top: #ffffff;
+    --anatomy-lit-shade: #eeeeeb;
+    --anatomy-hi: #26262a;
+    --anatomy-mid: #8a8a8f;
+    --anatomy-lo: #b4b4b8;
+    --anatomy-faint: #d4d4d6;
+    --anatomy-lit: #000000;
+    --anatomy-halo: #8a8a80;
+    --anatomy-halo-opacity: 0.32;
+    --anatomy-dot: #3a3a3e;
+  }
+}
+
+.uf-hero.iso[data-theme="light"] {
+  --uf-tape: #f1eee6;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .uf-hero.iso:not([data-theme]) {
+    --uf-tape: #f1eee6;
+  }
+}
+
+:root[data-theme="light"] .uf-hero.iso:not([data-theme]) {
+  --uf-tape: #f1eee6;
+}
+
+.uf-hero .iso-figure {
+  margin: 0;
+}
+
+.uf-hero .iso-legend {
+  font-size: 12.5px;
+}
+
+.uf-stage {
+  position: relative;
+  border-radius: 6px;
+  cursor: default;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.uf-stage:focus-visible {
+  outline: 1px solid var(--anatomy-muted);
+  outline-offset: 6px;
+}
+
+.uf-hole {
+  fill: var(--anatomy-shade-0);
+  stroke: var(--anatomy-lo);
+  stroke-width: var(--anatomy-weight);
+  stroke-linejoin: round;
+}
+
+.uf-tape {
+  fill: var(--uf-tape);
+  stroke: var(--uf-tape-line);
+  stroke-width: var(--anatomy-weight);
+  stroke-linejoin: round;
+}
+
+.uf-halo-small {
+  filter: blur(4px);
+}
+
+.uf-halo-part {
+  filter: blur(7px);
+}
+
+.uf-footprint {
+  transition: opacity 600ms var(--anatomy-ease);
+}
+
+/* Touch devices tap, mice hover. */
+.uf-hint-touch {
+  display: none;
+}
+
+@media (hover: none) {
+  .uf-hint-hover {
+    display: none;
+  }
+
+  .uf-hint-touch {
+    display: inline;
+  }
+}
+
+.uf-live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .uf-hero * {
+    transition: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .uf-hero .iso-plate {
+    overflow: hidden;
+  }
+
+  .uf-hero .iso-plate .uf-stage .iso-svg {
+    width: 112%;
+    margin: -2% -6% 0;
+  }
+}
