@@ -33,6 +33,7 @@ async function readStream(stream: ReadableStream<Uint8Array>): Promise<Uint8Arra
 
 export const store = {
   async putBytes(path: string, bytes: Uint8Array | string, contentType: string, overwrite = true): Promise<void> {
+    if (bytes.length === 0) throw new Error("store: empty body"); // same rule as Blob, so dev catches it too
     if (!ENV.blob) {
       if (!overwrite && memStore.has(path)) throw new Error("exists");
       memStore.set(path, { bytes: typeof bytes === "string" ? new TextEncoder().encode(bytes) : bytes, contentType });

@@ -41,7 +41,7 @@ async function today(): Promise<Entry[]> {
 async function write(kind: Kind, usd: number, ip: string, sid: string): Promise<string> {
   const cents = Math.max(0, Math.ceil(usd * 100));
   const path = `usage/${day()}/${Date.now()}_${kind}_${cents}_${ip}_${sid}_${newId(6)}`;
-  await store.putBytes(path, "", "text/plain");
+  await store.putBytes(path, "1", "text/plain"); // Blob refuses empty bodies; the pathname carries the data
   return path;
 }
 
