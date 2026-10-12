@@ -32,6 +32,14 @@ interface Picked {
 
 const INLINE_BYTES = 4 * 1024 * 1024;
 
+async function fetchStatus(): Promise<Status | null> {
+  try {
+    return (await (await fetch("/api/session", { cache: "no-store" })).json()) as Status;
+  } catch {
+    return null;
+  }
+}
+
 export default function Uploader() {
   const [status, setStatus] = useState<Status | null>(null);
   const [code, setCode] = useState("");
@@ -53,16 +61,18 @@ export default function Uploader() {
   const abort = useRef<AbortController | null>(null);
   const input = useRef<HTMLInputElement>(null);
 
-  const refresh = useCallback(async () => {
-    try {
-      setStatus((await (await fetch("/api/session", { cache: "no-store" })).json()) as Status);
-    } catch {
-      setStatus(null);
-    }
+  const refresh = useCallback(() => {
+    fetchStatus().then(setStatus);
   }, []);
   useEffect(() => {
-    refresh();
-  }, [refresh]);
+    let alive = true;
+    fetchStatus().then((s) => {
+      if (alive) setStatus(s);
+    });
+    return () => {
+      alive = false;
+    };
+  }, []);
 
   const working = stage !== null && !error && !result;
   useEffect(() => {
@@ -209,6 +219,8 @@ export default function Uploader() {
       finish("save");
       rememberMine({ id, name: String(built.name ?? picked.name), type: String(built.type_ ?? ""), steps: Number(built.steps ?? 0), createdAt: new Date().toISOString() });
       setResult({ id, name: [built.name, built.type_].filter(Boolean).join(" ") || picked.name });
+      // /m/[id] is a route handler serving a standalone HTML document: it needs a full page load.
+      // eslint-disable-next-line @next/next/no-location-assign-relative-destination
       window.location.assign(`/m/${id}`);
     } catch (err) {
       if ((err as { name?: string })?.name === "AbortError") setError("Stopped. Nothing more will be read.");

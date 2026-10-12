@@ -1,3 +1,4 @@
+import Link from "next/link";
 import HeroSlot from "@/components/HeroSlot";
 import { Wordmark } from "@/components/Logo";
 import MyManuals from "@/components/MyManuals";
@@ -12,9 +13,9 @@ export default function Home() {
     <>
       <header className="sticky top-0 z-20 border-b border-line/70 bg-bg/80 backdrop-blur supports-[backdrop-filter]:bg-bg/65">
         <nav className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between px-4 sm:px-6" aria-label="Main">
-          <a href="/" aria-label="Unflat home">
+          <Link href="/" aria-label="Unflat home">
             <Wordmark />
-          </a>
+          </Link>
           <div className="flex items-center gap-1 text-sm">
             <a href="#example" className="rounded-[3px] px-3 py-1.5 text-ink-2 hover:text-ink">Example</a>
             <a href="#how" className="hidden rounded-[3px] px-3 py-1.5 text-ink-2 hover:text-ink sm:block">How it works</a>
@@ -66,10 +67,13 @@ export default function Home() {
                   </div>
                 ))}
               </dl>
+              {/* /m/* are route handlers serving standalone HTML documents, so these are plain links. */}
               <div className="flex flex-wrap gap-2">
+                {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
                 <a href="/m/billy" className="inline-flex h-11 items-center rounded-[3px] bg-accent px-4 text-[15px] font-medium text-accent-ink">
                   Open the BILLY manual
                 </a>
+                {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
                 <a href="/m/billy/download" className="inline-flex h-11 items-center rounded-[3px] border border-line-2 px-4 text-[15px] text-ink hover:border-ink-3">
                   Download as one HTML file
                 </a>

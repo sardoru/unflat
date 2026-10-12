@@ -6,6 +6,6 @@ import { notFoundHtml } from "@/lib/server/not-found";
 export async function GET(req: Request, ctx: RouteContext<"/m/[id]/download">) {
   const { id } = await ctx.params;
   const rec = await loadManual(id);
-  if (!rec) return notFoundHtml(originOf(req));
+  if (!rec) return notFoundHtml();
   return htmlResponse(rec, originOf(req), "download");
 }

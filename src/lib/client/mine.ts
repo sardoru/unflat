@@ -9,15 +9,36 @@ export interface MyManual {
 }
 
 const KEY = "unflat.mine";
+const EMPTY: MyManual[] = [];
+let cache: { raw: string | null; list: MyManual[] } = { raw: null, list: EMPTY };
 
-/** Manuals made in this browser (ids only live here; nothing is listed publicly). */
-export function loadMine(): MyManual[] {
+function read(): string | null {
   try {
-    const raw = JSON.parse(localStorage.getItem(KEY) ?? "[]");
-    return Array.isArray(raw) ? (raw as MyManual[]).filter((m) => m && typeof m.id === "string").slice(0, 50) : [];
+    return localStorage.getItem(KEY);
   } catch {
-    return [];
+    return null;
   }
+}
+
+/** Manuals made in this browser (ids only live here; nothing is listed publicly). Stable between changes. */
+export function loadMine(): MyManual[] {
+  const raw = read();
+  if (raw === cache.raw) return cache.list;
+  let list = EMPTY;
+  try {
+    const parsed = JSON.parse(raw ?? "[]");
+    if (Array.isArray(parsed)) list = (parsed as MyManual[]).filter((m) => m && typeof m.id === "string").slice(0, 50);
+  } catch {}
+  cache = { raw, list };
+  return list;
+}
+
+export function subscribeMine(onChange: () => void): () => void {
+  const handler = (e: StorageEvent) => {
+    if (e.key === KEY) onChange();
+  };
+  window.addEventListener("storage", handler);
+  return () => window.removeEventListener("storage", handler);
 }
 
 export function rememberMine(m: MyManual): void {
