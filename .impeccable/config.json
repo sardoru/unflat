@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "engine/engine.js"
+        ],
+        "createdAt": "2026-10-12T12:10:01.453Z",
+        "reason": "agent: partItem() builds the <img> in a template string and immediately sets src to the WebGL-rendered part thumbnail, or removes the tag when there is none (engine/engine.js)"
+      }
+    ]
+  }
+}

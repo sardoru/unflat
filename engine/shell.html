@@ -1,0 +1,148 @@
+<style>
+/* Unflat manual sheet. Derived from the 3d-assembly-manual starter (MIT, Skylar Kitchen): a light drawing sheet on purpose. */
+:root{--paper:#ffffff;--ink:#141414;--ink-2:#5f5f5f;--ink-3:#8c8c8c;--rule:#e3e3e3;--callout:#f4f4f4;--accent:#1f4fd8;--mono:"Geist Mono",ui-monospace,Menlo,monospace}
+html,body{height:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Geist,-apple-system,"Helvetica Neue",Arial,sans-serif;font-size:15px;line-height:1.45;overflow:hidden;-webkit-text-size-adjust:100%}
+.app{height:100%;display:flex;flex-direction:column}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 12px 8px 16px;border-bottom:1px solid var(--rule);min-height:44px;box-sizing:border-box}
+header .id{min-width:0}
+header h1{font-size:15px;font-weight:600;margin:0;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+header .sub{display:block;font-size:12.5px;color:var(--ink-2);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+header .right{display:flex;align-items:center;gap:6px;flex:none}
+header .where{font-family:var(--mono);font-size:12px;color:var(--ink-2);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;margin-right:4px}
+.hb{height:30px;min-width:30px;padding:0 9px;font:500 12.5px/28px Geist,-apple-system,sans-serif;border:1px solid var(--rule);border-radius:2px;background:var(--paper);color:var(--ink-2);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:5px;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+.hb:hover{color:var(--ink);border-color:var(--ink-3)}
+.hb[hidden]{display:none}
+.hb svg{width:14px;height:14px;flex:none}
+.hb .lbl{display:inline}
+.home{font-weight:600;color:var(--ink);letter-spacing:-.01em;border:0;padding:0 6px 0 0}
+.stage{position:relative;flex:1;min-height:200px;overflow:hidden}
+#c{display:block;width:100%;height:100%;touch-action:none;cursor:grab}
+#c:active{cursor:grabbing}
+.callout{position:absolute;left:12px;top:12px;max-width:calc(100% - 120px);background:var(--callout);border:1px solid var(--rule);border-radius:2px;padding:7px 9px 6px}
+.callout[hidden]{display:none}
+.callout .h{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);margin:0 0 5px}
+.callout ul{list-style:none;margin:0;padding:0;display:flex;gap:10px;flex-wrap:wrap;max-width:300px}
+.callout li{width:54px;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.callout li:active img{border-color:var(--accent)}
+.callout .th{position:relative;width:46px;height:46px}
+.callout img{width:46px;height:46px;display:block;background:#fff;border:1px solid var(--rule);border-radius:2px}
+.callout .q{position:absolute;right:-6px;bottom:-4px;font-family:var(--mono);font-size:10.5px;background:var(--ink);color:#fff;border-radius:2px;padding:1px 4px;line-height:1.3}
+.callout .nm{font-size:10.5px;line-height:1.2;text-align:center;color:var(--ink-2);text-wrap:balance}
+.replay{position:absolute;right:12px;top:12px;height:30px;padding:0 10px;font-size:12.5px;border:1px solid var(--rule);background:var(--paper);color:var(--ink-2)}
+.replay[hidden]{display:none}
+#dims{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.dim,.note,.mark{position:absolute;left:0;top:0;opacity:0;transition:opacity .35s;will-change:transform;white-space:nowrap}
+.dim,.note{font-family:var(--mono);font-size:11px;line-height:1.2;background:var(--paper);border:1px solid var(--ink);color:var(--ink);padding:1px 5px;border-radius:2px}
+.note{border-color:var(--rule);color:var(--ink-2)}
+.mark{width:20px;height:20px;border-radius:50%;background:var(--ink);color:#fff;font:500 11px/20px var(--mono);text-align:center;box-shadow:0 0 0 1.5px #fff,0 0 0 2.5px var(--ink)}
+.mark i{position:absolute;left:50%;top:50%;height:1px;background:var(--ink);transform-origin:0 50%;box-shadow:0 1px 0 #fff}
+.dim.on,.note.on,.mark.on{opacity:1}
+.plan{position:absolute;right:12px;top:52px;width:84px;height:84px;border:1px solid var(--rule);border-radius:2px;pointer-events:none}
+.plan span{position:absolute;left:5px;top:3px;font-family:var(--mono);font-size:10px;color:var(--ink-3)}
+.bubble{position:absolute;right:12px;bottom:12px;width:116px;height:116px;pointer-events:none;display:none;overflow:hidden}
+.bubble.on{display:block}
+.bubble i{position:absolute;inset:0;border-radius:50%;box-shadow:0 0 0 90px var(--paper);border:1px solid var(--ink);transform-origin:50% 50%}
+.leader,.ring{position:absolute;left:0;top:0;pointer-events:none;display:none}
+.leader{height:1px;background:var(--ink);transform-origin:0 50%}
+.ring{width:18px;height:18px;border-radius:50%;border:1px solid var(--ink);box-shadow:0 0 0 1px #fff inset}
+.bubble.on ~ .leader,.bubble.on ~ .ring{display:block}
+.scale{position:absolute;left:12px;bottom:12px;display:flex;align-items:center;gap:6px;font:11px var(--mono);color:var(--ink);pointer-events:none}
+.scale span{background:var(--paper);padding:0 3px;border-radius:2px}
+.scale i{display:block;height:1px;background:var(--ink);position:relative}
+.scale i::before,.scale i::after{content:"";position:absolute;top:-3px;width:1px;height:7px;background:var(--ink)}
+.scale i::before{left:0}.scale i::after{right:0}
+.progress{height:14px;position:relative;border-top:1px solid var(--rule)}
+.progress i{position:absolute;left:0;top:-1px;height:2px;background:var(--ink);transition:width .5s cubic-bezier(.22,1,.36,1)}
+.progress .ticks{position:absolute;left:0;right:0;top:0;height:14px;display:flex}
+.progress .ticks b{flex:1;position:relative}
+.progress .ticks b::after{content:"";position:absolute;right:0;top:0;width:1px;height:5px;background:var(--rule)}
+.progress .ticks b.done::after{background:var(--ink)}
+.sheet{touch-action:pan-y;padding:10px 16px 6px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 14px;align-items:start;max-height:36%;overflow-y:auto;overscroll-behavior:contain}
+.num{font-size:44px;font-weight:600;line-height:.95;letter-spacing:-.03em;font-variant-numeric:tabular-nums;min-width:1.4ch;color:var(--ink)}
+.num small{font-size:13px;font-weight:500;letter-spacing:0;color:var(--ink-2);display:block;margin-top:2px}
+.body{min-width:0;transition:opacity .16s}
+.title{font-weight:600;font-size:16.5px;margin:3px 0 2px;text-wrap:balance;letter-spacing:-.01em}
+.text{margin:0;max-width:64ch}
+.text:empty{display:none}
+.acts{margin:6px 0 0;padding:0;list-style:none;display:grid;gap:5px;max-width:64ch}
+.acts li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:8px;align-items:start}
+.acts b{width:20px;height:20px;border-radius:50%;background:var(--ink);color:#fff;font:500 11px/20px var(--mono);text-align:center;margin-top:1px}
+.acts:empty{display:none}
+.meta{font-family:var(--mono);font-size:12px;color:var(--ink-2);margin-top:6px;font-variant-numeric:tabular-nums;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center}
+.meta:empty{display:none}
+.meta .pg{font:inherit;color:var(--accent);background:none;border:0;padding:0;height:auto;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.meta .warn{color:#a4501a}
+.tip{margin:6px 0 0;font-size:13.5px;color:var(--ink-2);max-width:64ch;padding-left:10px;border-left:2px solid var(--rule)}
+.tip:empty{display:none}
+.inv{margin:8px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px 14px;font-size:13.5px}
+.inv li{display:flex;gap:8px;align-items:center;padding:3px 0;border-bottom:1px solid var(--rule);min-width:0}
+.inv img{width:34px;height:34px;flex:none;border:1px solid var(--rule);border-radius:2px;background:#fff}
+.inv .q{font-family:var(--mono);color:var(--ink-2);min-width:3.2em;font-variant-numeric:tabular-nums;font-size:12px}
+.inv .nm{min-width:0}
+.inv .cd{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-left:auto;padding-left:6px}
+.grp{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin:12px 0 0}
+.nav{display:grid;grid-template-columns:1fr 2fr;gap:8px;padding:8px 16px calc(12px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--rule)}
+button{font:inherit;font-weight:500;height:52px;border-radius:2px;border:1px solid var(--ink);background:var(--paper);color:var(--ink);cursor:pointer;padding:0 14px;-webkit-tap-highlight-color:transparent}
+button.primary{background:var(--ink);border-color:var(--ink);color:#fff}
+button:disabled{opacity:.35;cursor:default}
+button:focus-visible,.hb:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.overlay{position:fixed;inset:0;background:rgba(20,20,20,.55);display:none;align-items:center;justify-content:center;z-index:10;padding:16px;box-sizing:border-box}
+.overlay.on{display:flex}
+.overlay .card{background:var(--paper);border-radius:2px;max-width:min(860px,100%);max-height:100%;overflow:auto;padding:12px 14px 14px;box-sizing:border-box;position:relative}
+.overlay .card h2{font-size:14px;font-weight:600;margin:0 34px 8px 0}
+.overlay .card img{display:block;max-width:100%;height:auto;border:1px solid var(--rule)}
+.overlay .x{position:absolute;right:8px;top:8px;height:28px;width:28px;padding:0;font-size:16px;line-height:26px;border-color:var(--rule)}
+.overlay ul{margin:0;padding:0 0 0 18px;font-size:13.5px;color:var(--ink-2)}
+.overlay li{margin:3px 0}
+.overlay li.check{color:var(--ink)}
+.overlay .src{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin-top:10px}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--ink);color:#fff;font-size:13px;padding:7px 12px;border-radius:2px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:11}
+.toast.on{opacity:1}
+.credit{position:absolute;right:12px;bottom:12px;font:11px var(--mono);color:var(--ink-3);text-decoration:none}
+@media (max-width:430px){body{font-size:14.5px}.tip{font-size:13px}.title{font-size:16px}.hb .lbl{display:none}.hb{padding:0 7px}}
+@media (prefers-reduced-motion:reduce){.progress i,.dim,.note,.mark,.body{transition:none}}
+@media (max-width:759px){.callout{padding:5px 6px 4px;max-width:calc(100% - 132px)}.callout .h{font-size:9.5px;margin:0 0 3px}.callout ul{flex-wrap:nowrap;overflow-x:auto;gap:6px;max-width:none;scrollbar-width:none;padding-bottom:2px}.callout ul::-webkit-scrollbar{display:none}.callout li{flex:0 0 40px;width:40px}.callout .th,.callout img{width:32px;height:32px;box-sizing:border-box}.callout .q{font-size:9px;padding:0 3px}.callout .nm{font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:40px}
+  .callout.more::after{content:"";position:absolute;right:1px;top:1px;bottom:1px;width:28px;background:linear-gradient(to right,rgba(244,244,244,0),var(--callout));pointer-events:none}
+  header .where{display:none}}
+@media (min-width:760px){.sheet{max-height:34%}.callout ul{max-width:420px}.bubble{width:150px;height:150px}}
+</style>
+<div class="app">
+  <header>
+    <div class="id"><h1 id="h1"></h1><span class="sub" id="sub"></span></div>
+    <div class="right">
+      <span class="where" id="where"></span>
+      <button class="hb" id="notesBtn" type="button" hidden title="What the reader estimated"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6.2"/><path d="M8 7.2v4M8 4.6v.4" stroke-linecap="round"/></svg><span class="lbl">Notes</span></button>
+      <a class="hb" id="dlBtn" hidden title="Download this manual as one HTML file"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.5v7.5M4.8 7l3.2 3.2L11.2 7M3 13.2h10"/></svg><span class="lbl">Download</span></a>
+      <button class="hb" id="shareBtn" type="button" hidden title="Copy link"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 9.4l2.8-2.8M7.4 4.6l1-1a2.6 2.6 0 0 1 3.7 3.7l-1 1M8.6 11.4l-1 1a2.6 2.6 0 0 1-3.7-3.7l1-1"/></svg><span class="lbl">Share</span></button>
+      <a class="hb home" id="homeBtn" hidden>Unflat</a>
+    </div>
+  </header>
+  <div class="stage">
+    <canvas id="c"></canvas>
+    <div id="dims"></div>
+    <div class="callout" id="callout" hidden><p class="h">Parts for this step · tap one to find it</p><ul id="parts"></ul></div>
+    <div class="plan"><span>Plan</span></div>
+    <div class="bubble" id="bubble"><i></i></div><div class="leader" id="leader"></div><div class="ring" id="ring"></div>
+    <div class="scale"><i id="scaleBar"></i><span id="scaleTxt">10 cm</span></div>
+    <button class="replay" id="replay" type="button">Replay</button>
+  </div>
+  <div class="progress"><i id="bar"></i><div class="ticks" id="ticks"></div></div>
+  <div class="sheet" id="sheet">
+    <div class="num" id="num"></div>
+    <div class="body" id="body">
+      <h2 class="title" id="title"></h2>
+      <p class="text" id="text"></p>
+      <ol class="acts" id="acts"></ol>
+      <div class="meta" id="meta"></div>
+      <p class="tip" id="tip"></p>
+      <div id="extra"></div>
+    </div>
+  </div>
+  <div class="nav">
+    <button id="prev" type="button">Back</button>
+    <button id="next" type="button" class="primary">Next step</button>
+  </div>
+</div>
+<div class="overlay" id="overlay" role="dialog" aria-modal="true"><div class="card"><button class="x" id="overlayX" type="button" aria-label="Close">×</button><h2 id="overlayH"></h2><div id="overlayB"></div></div></div>
+<div class="toast" id="toast"></div>
