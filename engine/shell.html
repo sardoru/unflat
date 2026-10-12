@@ -53,7 +53,7 @@ header .where{font-family:var(--mono);font-size:12px;color:var(--ink-2);text-ali
 .scale i::before,.scale i::after{content:"";position:absolute;top:-3px;width:1px;height:7px;background:var(--ink)}
 .scale i::before{left:0}.scale i::after{right:0}
 .progress{height:14px;position:relative;border-top:1px solid var(--rule)}
-.progress i{position:absolute;left:0;top:-1px;height:2px;background:var(--ink);transition:width .5s cubic-bezier(.22,1,.36,1)}
+.progress i{position:absolute;left:0;right:0;top:-1px;height:2px;background:var(--ink);transform:scaleX(0);transform-origin:0 50%;transition:transform .5s cubic-bezier(.22,1,.36,1)}
 .progress .ticks{position:absolute;left:0;right:0;top:0;height:14px;display:flex}
 .progress .ticks b{flex:1;position:relative}
 .progress .ticks b::after{content:"";position:absolute;right:0;top:0;width:1px;height:5px;background:var(--rule)}

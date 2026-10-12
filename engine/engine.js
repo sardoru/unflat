@@ -522,7 +522,7 @@ function enter(i, replay){
   if (list.length){ list.forEach(function(p){ pl.appendChild(partItem(p[0], p[1], 'callout')); }); co.hidden = false; } else { co.hidden = true; } partsCue();
   $('#replay').hidden = !(i > 0 && i < LAST);
   $('#prev').disabled = i === 0; $('#next').textContent = i === LAST ? 'Back to the parts' : (i === 0 ? 'Start' : (i === LAST - 1 ? 'Finish' : 'Next step'));
-  $('#bar').style.width = (i / LAST * 100) + '%';
+  $('#bar').style.transform = 'scaleX(' + (i / LAST).toFixed(4) + ')';
   Array.prototype.forEach.call($('#ticks').children, function(b, j){ b.classList.toggle('done', j < i); });
   where.textContent = i === 0 ? 'Parts' : (i === LAST ? 'Done' : 'Step ' + i + ' of ' + N);
   if (!replay && !STILL){ try { localStorage.setItem(storageKey, String(i)); } catch { /* storage off: just don't remember */ } }
