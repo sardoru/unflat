@@ -1,0 +1,5 @@
+# development-only preview routes and capture scripts
+src/app/dev
+scripts/hero
+.env*
+.impeccable/hook.cache.json

@@ -1,0 +1,35 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "engine/engine.js"
+        ],
+        "createdAt": "2026-10-12T12:10:01.453Z",
+        "reason": "agent: partItem() builds the <img> in a template string and immediately sets src to the WebGL-rendered part thumbnail, or removes the tag when there is none (engine/engine.js)"
+      },
+      {
+        "rule": "overused-font",
+        "value": "geist",
+        "files": [
+          "engine/shell.html"
+        ],
+        "createdAt": "2026-10-12T13:13:45.380Z",
+        "reason": "agent: the 3d-assembly-manual skill the user asked to use specifies Geist + Geist Mono for the manual sheet (skills/design/3d-assembly-manual/SKILL.md, 'Look')"
+      },
+      {
+        "rule": "overused-font",
+        "value": "geist",
+        "files": [
+          "src/lib/engine/render.ts"
+        ],
+        "createdAt": "2026-10-12T13:13:45.461Z",
+        "reason": "agent: loads the Geist + Geist Mono faces that the 3d-assembly-manual skill specifies for the manual sheet"
+      }
+    ]
+  }
+}
