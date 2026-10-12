@@ -124,7 +124,7 @@ const step = obj({
   caution: bool("True when the manual marks the step with a warning"),
 });
 
-export const OUTLINE_SCHEMA: JsonSchema = obj({
+const outlineFields = {
   product,
   parts: arr(part),
   assemblies: arr(subAssembly, "Sub-assemblies built apart from the main body (drawers, doors). Empty if none"),
@@ -133,7 +133,9 @@ export const OUTLINE_SCHEMA: JsonSchema = obj({
   layout: str(
     "Notes for the 3D layout pass: overall frame, panel thicknesses, shelf heights, hole patterns, which edges get which hardware",
   ),
-});
+};
+
+export const OUTLINE_SCHEMA: JsonSchema = obj(outlineFields);
 
 const placement = obj({
   id: str("Unique id, e.g. side-left, dowels-shelf-top"),
@@ -150,7 +152,7 @@ const placement = obj({
   from: oneOf(FROMS, "Approach direction in the world frame; auto is right for most parts"),
 });
 
-export const LAYOUT_SCHEMA: JsonSchema = obj({
+const layoutFields = {
   placements: arr(placement),
   marks: arr(
     obj({
@@ -160,4 +162,6 @@ export const LAYOUT_SCHEMA: JsonSchema = obj({
   ),
   sizes: arr(obj({ key: str(), size: arr(num()) }), "Part size corrections found while laying out, or empty"),
   assumptions: arr(str(), "Layout estimates worth checking"),
-});
+};
+
+export const LAYOUT_SCHEMA: JsonSchema = obj(layoutFields);

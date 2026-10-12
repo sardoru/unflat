@@ -36,15 +36,17 @@ export class ParseError extends Error {
   }
 }
 
-/** The document blocks; the last one carries the cache breakpoint so both passes share the prefix. */
+/**
+ * The document blocks. No cache breakpoint: each pass has its own output schema, which sits
+ * in the prompt prefix ahead of the document, so a cache write could never be read back.
+ */
 export function documentBlocks(src: SourceFile): BetaContentBlockParam[] {
   if (src.kind === "pdf") {
     return [
       {
         type: "document",
         source: { type: "base64", media_type: "application/pdf", data: src.data.toString("base64") },
-        title: src.name,
-        cache_control: { type: "ephemeral" },
+        title: src.name.slice(0, 120),
       },
     ];
   }
@@ -53,8 +55,6 @@ export function documentBlocks(src: SourceFile): BetaContentBlockParam[] {
     blocks.push({ type: "text", text: `Page ${i + 1}:` });
     blocks.push({ type: "image", source: { type: "base64", media_type: img.mediaType, data: img.data.toString("base64") } });
   });
-  const last = blocks[blocks.length - 1];
-  if (last && last.type === "image") last.cache_control = { type: "ephemeral" };
   return blocks;
 }
 
@@ -80,7 +80,7 @@ export interface PhaseResult {
 export async function runPhase(
   phase: "read" | "build",
   src: SourceFile,
-  opts: { hint?: string; outline?: ManualOutline; signal?: AbortSignal; onEvent?: (e: PhaseEvent) => void } = {},
+  opts: { hint?: string; outline?: ManualOutline; signal?: AbortSignal; maxTokens?: number; onEvent?: (e: PhaseEvent) => void } = {},
 ): Promise<PhaseResult> {
   const client = new Anthropic();
   const hint = (opts.hint ?? "").slice(0, 600);
@@ -92,12 +92,14 @@ export async function runPhase(
   const stream = client.beta.messages.stream(
     {
       model: MODEL,
-      max_tokens: 64000,
+      max_tokens: opts.maxTokens ?? 64000,
       betas: [FALLBACK_BETA],
       fallbacks: "default",
       thinking: { type: "adaptive", display: "summarized" },
       output_config: {
         effort: EFFORT,
+        // Separate schemas per pass: a combined one exceeds the structured-output grammar limit.
+        // (The format sits in the cached prefix, so the BUILD pass doesn't reuse READ's cache.)
         format: { type: "json_schema", schema: phase === "read" ? OUTLINE_SCHEMA : LAYOUT_SCHEMA },
       },
       system: SYSTEM_PROMPT,

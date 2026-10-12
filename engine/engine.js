@@ -277,7 +277,7 @@ for (var pi = 0; pi <= LAST; pi++){
   var fb = focus.length ? worldBox(focus) : all;
   if (fb.isEmpty()) fb = all.isEmpty() ? new T.Box3(new T.Vector3(-1, 0, -1), new T.Vector3(1, 1, 1)) : all;
   var view = viewOf(pi);
-  var minR = pi > 0 && pi < LAST ? 0.17 * S : 0;
+  var minR = pi > 0 && pi < LAST ? 0.24 * S : 0;   /* small parts still get their surroundings */
   CAMS.push(extend(frameBox(fb, view, minR), {v: view}));
   /* a detail bubble when the new parts are small next to the view */
   var det = null, small = arrivals(pi).filter(function(key){ return objs[key].userData.hw; });

@@ -1,7 +1,7 @@
 // Bundles engine/shell.html + engine/engine.js into a TS module the app imports,
 // so the viewer and the downloadable file are built from the same source.
 // Runs before `next dev` / `next build` (see package.json).
-import { readFile, writeFile } from "node:fs/promises";
+import { copyFile, readFile, writeFile } from "node:fs/promises";
 
 const root = new URL("../", import.meta.url);
 const shell = await readFile(new URL("engine/shell.html", root), "utf8");
@@ -17,3 +17,6 @@ try {
 } catch {}
 if (prev !== out) await writeFile(target, out);
 console.log(`engine: ${(engine.length / 1024).toFixed(1)} KB js, ${(shell.length / 1024).toFixed(1)} KB shell`);
+
+// pdf.js renders page thumbnails in the browser; its worker is served as a static file.
+await copyFile(new URL("node_modules/pdfjs-dist/legacy/build/pdf.worker.min.mjs", root), new URL("public/pdf.worker.min.mjs", root));

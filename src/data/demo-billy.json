@@ -1,0 +1,1762 @@
+{
+ "id": "billy",
+ "createdAt": "2026-10-12T12:00:00.000Z",
+ "source": {
+  "name": "billy-bookcase-white__AA-2289108-3.pdf",
+  "pages": 16,
+  "kind": "pdf"
+ },
+ "spec": {
+  "version": 1,
+  "product": {
+   "name": "BILLY",
+   "type": "Bookcase",
+   "size": [
+    80,
+    202,
+    28
+   ],
+   "people": 2,
+   "minutes": 64,
+   "ref": "AA-2289108-3"
+  },
+  "parts": [
+   {
+    "key": "side",
+    "name": "Side panel",
+    "code": "",
+    "kind": "panel",
+    "qty": 2,
+    "shape": "box",
+    "size": [
+     1.6,
+     202,
+     28
+    ],
+    "material": "white"
+   },
+   {
+    "key": "top",
+    "name": "Top board",
+    "code": "",
+    "kind": "board",
+    "qty": 1,
+    "shape": "box",
+    "size": [
+     76.8,
+     1.6,
+     26.8
+    ],
+    "material": "white"
+   },
+   {
+    "key": "fixed_shelf",
+    "name": "Fixed middle shelf",
+    "code": "",
+    "kind": "board",
+    "qty": 1,
+    "shape": "box",
+    "size": [
+     76.8,
+     1.6,
+     26.8
+    ],
+    "material": "white"
+   },
+   {
+    "key": "bottom",
+    "name": "Bottom board",
+    "code": "",
+    "kind": "board",
+    "qty": 1,
+    "shape": "box",
+    "size": [
+     76.8,
+     1.6,
+     26.8
+    ],
+    "material": "white"
+   },
+   {
+    "key": "plinth",
+    "name": "Plinth rail",
+    "code": "",
+    "kind": "rail",
+    "qty": 1,
+    "shape": "box",
+    "size": [
+     76.8,
+     6.4,
+     1.6
+    ],
+    "material": "white"
+   },
+   {
+    "key": "shelf",
+    "name": "Adjustable shelf",
+    "code": "",
+    "kind": "board",
+    "qty": 4,
+    "shape": "box",
+    "size": [
+     76.2,
+     1.6,
+     26
+    ],
+    "material": "white"
+   },
+   {
+    "key": "back",
+    "name": "Back panel (folding)",
+    "code": "",
+    "kind": "back",
+    "qty": 1,
+    "shape": "box",
+    "size": [
+     78,
+     200.8,
+     0.3
+    ],
+    "material": "white"
+   },
+   {
+    "key": "118331",
+    "name": "Cam bolt",
+    "code": "118331",
+    "kind": "cam_bolt",
+    "qty": 12,
+    "shape": "box",
+    "size": [
+     0.6,
+     3.4
+    ],
+    "material": "metal"
+   },
+   {
+    "key": "101351",
+    "name": "Wooden dowel",
+    "code": "101351",
+    "kind": "dowel",
+    "qty": 16,
+    "shape": "box",
+    "size": [
+     0.8,
+     3
+    ],
+    "material": "wood"
+   },
+   {
+    "key": "151705",
+    "name": "Back panel pin",
+    "code": "151705",
+    "kind": "nail",
+    "qty": 18,
+    "shape": "box",
+    "size": [
+     0.4,
+     1.8
+    ],
+    "material": "plastic"
+   },
+   {
+    "key": "151706",
+    "name": "Expanding sleeve",
+    "code": "151706",
+    "kind": "plug",
+    "qty": 18,
+    "shape": "box",
+    "size": [
+     0.6,
+     1.2
+    ],
+    "material": "plastic"
+   },
+   {
+    "key": "119081",
+    "name": "Cam lock",
+    "code": "119081",
+    "kind": "cam_lock",
+    "qty": 12,
+    "shape": "box",
+    "size": [
+     1.5,
+     1.2
+    ],
+    "material": "metal"
+   },
+   {
+    "key": "131372",
+    "name": "Shelf pin",
+    "code": "131372",
+    "kind": "shelf_pin",
+    "qty": 16,
+    "shape": "box",
+    "size": [
+     0.5,
+     1.6
+    ],
+    "material": "metal"
+   },
+   {
+    "key": "109041",
+    "name": "Wood screw",
+    "code": "109041",
+    "kind": "screw",
+    "qty": 2,
+    "shape": "box",
+    "size": [
+     0.4,
+     1.2
+    ],
+    "material": "metal"
+   },
+   {
+    "key": "100823",
+    "name": "Washer",
+    "code": "100823",
+    "kind": "washer",
+    "qty": 4,
+    "shape": "box",
+    "size": [
+     1.6,
+     0.1
+    ],
+    "material": "metal"
+   },
+   {
+    "key": "106989",
+    "name": "Wall bracket",
+    "code": "106989",
+    "kind": "bracket",
+    "qty": 2,
+    "shape": "box",
+    "size": [
+     8,
+     4,
+     1.6
+    ],
+    "material": "metal"
+   },
+   {
+    "key": "flat_screwdriver",
+    "name": "Flat-head screwdriver",
+    "code": "",
+    "kind": "tool",
+    "qty": 1,
+    "shape": "box",
+    "size": [
+     2,
+     20
+    ],
+    "material": "metal"
+   },
+   {
+    "key": "phillips_screwdriver",
+    "name": "Phillips screwdriver",
+    "code": "",
+    "kind": "tool",
+    "qty": 1,
+    "shape": "box",
+    "size": [
+     2,
+     20
+    ],
+    "material": "metal"
+   },
+   {
+    "key": "pencil",
+    "name": "Pencil",
+    "code": "",
+    "kind": "tool",
+    "qty": 1,
+    "shape": "box",
+    "size": [
+     0.7,
+     17
+    ],
+    "material": "wood"
+   },
+   {
+    "key": "hammer",
+    "name": "Hammer",
+    "code": "",
+    "kind": "tool",
+    "qty": 1,
+    "shape": "box",
+    "size": [
+     3,
+     30
+    ],
+    "material": "metal"
+   },
+   {
+    "key": "ruler",
+    "name": "Ruler",
+    "code": "",
+    "kind": "tool",
+    "qty": 1,
+    "shape": "box",
+    "size": [
+     3,
+     30
+    ],
+    "material": "metal"
+   }
+  ],
+  "assemblies": [
+   {
+    "key": "asm_lower",
+    "name": "Bottom board, fixed shelf and plinth with dowels",
+    "offset": [
+     0,
+     0,
+     70
+    ],
+    "joins": 3
+   },
+   {
+    "key": "asm_top",
+    "name": "Top board with dowels",
+    "offset": [
+     0,
+     0,
+     110
+    ],
+    "joins": 5
+   },
+   {
+    "key": "asm_left_side",
+    "name": "Left side panel with cam bolts",
+    "offset": [
+     0,
+     0,
+     -80
+    ],
+    "joins": 6
+   }
+  ],
+  "placements": [
+   {
+    "id": "side-right",
+    "part": "side",
+    "step": 2,
+    "at": [
+     [
+      39.2,
+      101,
+      0
+     ]
+    ],
+    "axis": "y",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "",
+    "from": "auto"
+   },
+   {
+    "id": "side-left",
+    "part": "side",
+    "step": 2,
+    "at": [
+     [
+      -39.2,
+      101,
+      0
+     ]
+    ],
+    "axis": "y",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "asm_left_side",
+    "from": "above"
+   },
+   {
+    "id": "top",
+    "part": "top",
+    "step": 1,
+    "at": [
+     [
+      0,
+      201.2,
+      0.6
+     ]
+    ],
+    "axis": "y",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "asm_top",
+    "from": "auto"
+   },
+   {
+    "id": "fixed-shelf",
+    "part": "fixed_shelf",
+    "step": 1,
+    "at": [
+     [
+      0,
+      104.2,
+      0.6
+     ]
+    ],
+    "axis": "y",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "asm_lower",
+    "from": "auto"
+   },
+   {
+    "id": "bottom",
+    "part": "bottom",
+    "step": 1,
+    "at": [
+     [
+      0,
+      7.2,
+      0.6
+     ]
+    ],
+    "axis": "y",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "asm_lower",
+    "from": "auto"
+   },
+   {
+    "id": "plinth",
+    "part": "plinth",
+    "step": 1,
+    "at": [
+     [
+      0,
+      3.2,
+      12.2
+     ]
+    ],
+    "axis": "y",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "asm_lower",
+    "from": "auto"
+   },
+   {
+    "id": "dowels-lower-left",
+    "part": "101351",
+    "step": 1,
+    "at": [
+     [
+      -38.4,
+      104.2,
+      11
+     ],
+     [
+      -38.4,
+      104.2,
+      -10
+     ],
+     [
+      -38.4,
+      7.2,
+      11
+     ],
+     [
+      -38.4,
+      7.2,
+      -10
+     ]
+    ],
+    "axis": "x",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "asm_lower",
+    "from": "auto"
+   },
+   {
+    "id": "dowels-lower-right",
+    "part": "101351",
+    "step": 1,
+    "at": [
+     [
+      38.4,
+      104.2,
+      11
+     ],
+     [
+      38.4,
+      104.2,
+      -10
+     ],
+     [
+      38.4,
+      7.2,
+      11
+     ],
+     [
+      38.4,
+      7.2,
+      -10
+     ]
+    ],
+    "axis": "-x",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "asm_lower",
+    "from": "auto"
+   },
+   {
+    "id": "dowels-plinth-left",
+    "part": "101351",
+    "step": 1,
+    "at": [
+     [
+      -38.4,
+      1.6,
+      12.2
+     ],
+     [
+      -38.4,
+      4.8,
+      12.2
+     ]
+    ],
+    "axis": "x",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "asm_lower",
+    "from": "auto"
+   },
+   {
+    "id": "dowels-plinth-right",
+    "part": "101351",
+    "step": 1,
+    "at": [
+     [
+      38.4,
+      1.6,
+      12.2
+     ],
+     [
+      38.4,
+      4.8,
+      12.2
+     ]
+    ],
+    "axis": "-x",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "asm_lower",
+    "from": "auto"
+   },
+   {
+    "id": "dowels-top-left",
+    "part": "101351",
+    "step": 1,
+    "at": [
+     [
+      -38.4,
+      201.2,
+      11
+     ],
+     [
+      -38.4,
+      201.2,
+      -10
+     ]
+    ],
+    "axis": "x",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "asm_top",
+    "from": "auto"
+   },
+   {
+    "id": "dowels-top-right",
+    "part": "101351",
+    "step": 1,
+    "at": [
+     [
+      38.4,
+      201.2,
+      11
+     ],
+     [
+      38.4,
+      201.2,
+      -10
+     ]
+    ],
+    "axis": "-x",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "asm_top",
+    "from": "auto"
+   },
+   {
+    "id": "cambolts-right",
+    "part": "118331",
+    "step": 2,
+    "at": [
+     [
+      38.4,
+      201.2,
+      6
+     ],
+     [
+      38.4,
+      201.2,
+      -5
+     ],
+     [
+      38.4,
+      104.2,
+      6
+     ],
+     [
+      38.4,
+      104.2,
+      -5
+     ],
+     [
+      38.4,
+      7.2,
+      6
+     ],
+     [
+      38.4,
+      7.2,
+      -5
+     ]
+    ],
+    "axis": "x",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "",
+    "from": "auto"
+   },
+   {
+    "id": "cambolts-left",
+    "part": "118331",
+    "step": 2,
+    "at": [
+     [
+      -38.4,
+      201.2,
+      6
+     ],
+     [
+      -38.4,
+      201.2,
+      -5
+     ],
+     [
+      -38.4,
+      104.2,
+      6
+     ],
+     [
+      -38.4,
+      104.2,
+      -5
+     ],
+     [
+      -38.4,
+      7.2,
+      6
+     ],
+     [
+      -38.4,
+      7.2,
+      -5
+     ]
+    ],
+    "axis": "-x",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "asm_left_side",
+    "from": "auto"
+   },
+   {
+    "id": "camlocks-bottom-right",
+    "part": "119081",
+    "step": 4,
+    "at": [
+     [
+      35,
+      8,
+      6
+     ],
+     [
+      35,
+      8,
+      -5
+     ]
+    ],
+    "axis": "-y",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "",
+    "from": "auto"
+   },
+   {
+    "id": "camlocks-fixed-right",
+    "part": "119081",
+    "step": 4,
+    "at": [
+     [
+      35,
+      103.4,
+      6
+     ],
+     [
+      35,
+      103.4,
+      -5
+     ]
+    ],
+    "axis": "y",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "",
+    "from": "auto"
+   },
+   {
+    "id": "camlocks-top-right",
+    "part": "119081",
+    "step": 5,
+    "at": [
+     [
+      35,
+      200.4,
+      6
+     ],
+     [
+      35,
+      200.4,
+      -5
+     ]
+    ],
+    "axis": "y",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "",
+    "from": "auto"
+   },
+   {
+    "id": "camlocks-left-upper",
+    "part": "119081",
+    "step": 7,
+    "at": [
+     [
+      -35,
+      200.4,
+      6
+     ],
+     [
+      -35,
+      200.4,
+      -5
+     ],
+     [
+      -35,
+      103.4,
+      6
+     ],
+     [
+      -35,
+      103.4,
+      -5
+     ]
+    ],
+    "axis": "y",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "",
+    "from": "auto"
+   },
+   {
+    "id": "camlocks-left-bottom",
+    "part": "119081",
+    "step": 7,
+    "at": [
+     [
+      -35,
+      8,
+      6
+     ],
+     [
+      -35,
+      8,
+      -5
+     ]
+    ],
+    "axis": "-y",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "",
+    "from": "auto"
+   },
+   {
+    "id": "back",
+    "part": "back",
+    "step": 8,
+    "at": [
+     [
+      0,
+      101.2,
+      -12.95
+     ]
+    ],
+    "axis": "y",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "",
+    "from": "left"
+   },
+   {
+    "id": "sleeves-back",
+    "part": "151706",
+    "step": 9,
+    "at": [
+     [
+      -33,
+      201.2,
+      -13.1
+     ],
+     [
+      -20,
+      201.2,
+      -13.1
+     ],
+     [
+      -7,
+      201.2,
+      -13.1
+     ],
+     [
+      7,
+      201.2,
+      -13.1
+     ],
+     [
+      20,
+      201.2,
+      -13.1
+     ],
+     [
+      33,
+      201.2,
+      -13.1
+     ],
+     [
+      -33,
+      104.2,
+      -13.1
+     ],
+     [
+      -20,
+      104.2,
+      -13.1
+     ],
+     [
+      -7,
+      104.2,
+      -13.1
+     ],
+     [
+      7,
+      104.2,
+      -13.1
+     ],
+     [
+      20,
+      104.2,
+      -13.1
+     ],
+     [
+      33,
+      104.2,
+      -13.1
+     ],
+     [
+      -33,
+      7.2,
+      -13.1
+     ],
+     [
+      -20,
+      7.2,
+      -13.1
+     ],
+     [
+      -7,
+      7.2,
+      -13.1
+     ],
+     [
+      7,
+      7.2,
+      -13.1
+     ],
+     [
+      20,
+      7.2,
+      -13.1
+     ],
+     [
+      33,
+      7.2,
+      -13.1
+     ]
+    ],
+    "axis": "z",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "",
+    "from": "auto"
+   },
+   {
+    "id": "pins-back",
+    "part": "151705",
+    "step": 9,
+    "at": [
+     [
+      -33,
+      201.2,
+      -13.1
+     ],
+     [
+      -20,
+      201.2,
+      -13.1
+     ],
+     [
+      -7,
+      201.2,
+      -13.1
+     ],
+     [
+      7,
+      201.2,
+      -13.1
+     ],
+     [
+      20,
+      201.2,
+      -13.1
+     ],
+     [
+      33,
+      201.2,
+      -13.1
+     ],
+     [
+      -33,
+      104.2,
+      -13.1
+     ],
+     [
+      -20,
+      104.2,
+      -13.1
+     ],
+     [
+      -7,
+      104.2,
+      -13.1
+     ],
+     [
+      7,
+      104.2,
+      -13.1
+     ],
+     [
+      20,
+      104.2,
+      -13.1
+     ],
+     [
+      33,
+      104.2,
+      -13.1
+     ],
+     [
+      -33,
+      7.2,
+      -13.1
+     ],
+     [
+      -20,
+      7.2,
+      -13.1
+     ],
+     [
+      -7,
+      7.2,
+      -13.1
+     ],
+     [
+      7,
+      7.2,
+      -13.1
+     ],
+     [
+      20,
+      7.2,
+      -13.1
+     ],
+     [
+      33,
+      7.2,
+      -13.1
+     ]
+    ],
+    "axis": "z",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "",
+    "from": "auto"
+   },
+   {
+    "id": "brackets",
+    "part": "106989",
+    "step": 10,
+    "at": [
+     [
+      -30,
+      202,
+      -14
+     ],
+     [
+      30,
+      202,
+      -14
+     ]
+    ],
+    "axis": "y",
+    "rot": [
+     0,
+     -90,
+     0
+    ],
+    "size": [],
+    "asm": "",
+    "from": "auto"
+   },
+   {
+    "id": "washers-top",
+    "part": "100823",
+    "step": 10,
+    "at": [
+     [
+      -30,
+      202.2,
+      -9
+     ],
+     [
+      30,
+      202.2,
+      -9
+     ]
+    ],
+    "axis": "-y",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "",
+    "from": "auto"
+   },
+   {
+    "id": "screws-top",
+    "part": "109041",
+    "step": 10,
+    "at": [
+     [
+      -30,
+      202.3,
+      -9
+     ],
+     [
+      30,
+      202.3,
+      -9
+     ]
+    ],
+    "axis": "-y",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "",
+    "from": "auto"
+   },
+   {
+    "id": "washers-wall",
+    "part": "100823",
+    "step": 10,
+    "at": [
+     [
+      -30,
+      204.5,
+      -13.8
+     ],
+     [
+      30,
+      204.5,
+      -13.8
+     ]
+    ],
+    "axis": "-z",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "",
+    "from": "auto"
+   },
+   {
+    "id": "shelfpins-left",
+    "part": "131372",
+    "step": 11,
+    "at": [
+     [
+      -38.4,
+      38.4,
+      10
+     ],
+     [
+      -38.4,
+      38.4,
+      -9
+     ],
+     [
+      -38.4,
+      70.4,
+      10
+     ],
+     [
+      -38.4,
+      70.4,
+      -9
+     ],
+     [
+      -38.4,
+      135.4,
+      10
+     ],
+     [
+      -38.4,
+      135.4,
+      -9
+     ],
+     [
+      -38.4,
+      167.4,
+      10
+     ],
+     [
+      -38.4,
+      167.4,
+      -9
+     ]
+    ],
+    "axis": "-x",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "",
+    "from": "auto"
+   },
+   {
+    "id": "shelfpins-right",
+    "part": "131372",
+    "step": 11,
+    "at": [
+     [
+      38.4,
+      38.4,
+      10
+     ],
+     [
+      38.4,
+      38.4,
+      -9
+     ],
+     [
+      38.4,
+      70.4,
+      10
+     ],
+     [
+      38.4,
+      70.4,
+      -9
+     ],
+     [
+      38.4,
+      135.4,
+      10
+     ],
+     [
+      38.4,
+      135.4,
+      -9
+     ],
+     [
+      38.4,
+      167.4,
+      10
+     ],
+     [
+      38.4,
+      167.4,
+      -9
+     ]
+    ],
+    "axis": "x",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "",
+    "from": "auto"
+   },
+   {
+    "id": "shelves-upper",
+    "part": "shelf",
+    "step": 12,
+    "at": [
+     [
+      0,
+      136.8,
+      1
+     ],
+     [
+      0,
+      168.8,
+      1
+     ]
+    ],
+    "axis": "y",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "",
+    "from": "auto"
+   },
+   {
+    "id": "shelves-lower",
+    "part": "shelf",
+    "step": 12,
+    "at": [
+     [
+      0,
+      39.8,
+      1
+     ],
+     [
+      0,
+      71.8,
+      1
+     ]
+    ],
+    "axis": "y",
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "size": [],
+    "asm": "",
+    "from": "auto"
+   }
+  ],
+  "steps": [
+   {
+    "n": 1,
+    "title": "Dowels into the boards",
+    "text": "Push wooden dowels into the end holes of the top, fixed shelf, bottom board and plinth rail. Each board end takes 2 dowels.",
+    "acts": [
+     {
+      "text": "Push 2 dowels into each end of the three wide boards (12 in all).",
+      "target": "dowels-lower-left"
+     },
+     {
+      "text": "Push 2 dowels into each end of the narrow plinth rail (4 in all).",
+      "target": "dowels-plinth-left"
+     }
+    ],
+    "pose": "on-right",
+    "view": "auto",
+    "tip": "Push each dowel in until half of it sticks out; tap gently with a hammer if tight.",
+    "pages": [
+     7
+    ],
+    "people": 1,
+    "minutes": 5,
+    "tools": [],
+    "wall": false,
+    "caution": false
+   },
+   {
+    "n": 2,
+    "title": "Cam bolts into the sides",
+    "text": "Screw 6 cam bolts into the inner face of each side panel, 2 at the top, 2 at the middle and 2 at the bottom.",
+    "acts": [
+     {
+      "text": "Lay both side panels flat with the inner faces up.",
+      "target": "side-right"
+     },
+     {
+      "text": "Screw 6 cam bolts into the right side panel.",
+      "target": "cambolts-right"
+     },
+     {
+      "text": "Screw 6 cam bolts into the left side panel.",
+      "target": "cambolts-left"
+     }
+    ],
+    "pose": "on-right",
+    "view": "auto",
+    "tip": "Screw the cam bolts in until the collar sits flush on the panel; use only the holes shown, not the shelf pin rows.",
+    "pages": [
+     8
+    ],
+    "people": 1,
+    "minutes": 6,
+    "tools": [
+     "phillips_screwdriver"
+    ],
+    "wall": false,
+    "caution": false
+   },
+   {
+    "n": 3,
+    "title": "Stand boards on the side",
+    "text": "With the right side panel lying flat, stand the plinth, bottom board and fixed shelf in its holes on their dowels.",
+    "acts": [
+     {
+      "text": "Press the plinth rail onto the dowel holes at the bottom front.",
+      "target": "plinth"
+     },
+     {
+      "text": "Press the bottom board onto its dowel holes behind the plinth.",
+      "target": "bottom"
+     },
+     {
+      "text": "Press the fixed shelf onto its dowel holes at mid height.",
+      "target": "fixed-shelf"
+     }
+    ],
+    "pose": "on-right",
+    "view": "auto",
+    "tip": "Turn each board so the edge with the small hole faces the front, as in the close-up; the other way is wrong.",
+    "pages": [
+     8
+    ],
+    "people": 1,
+    "minutes": 5,
+    "tools": [],
+    "wall": false,
+    "caution": false
+   },
+   {
+    "n": 4,
+    "title": "Lock bottom and fixed shelf",
+    "text": "Set cam locks into the bottom board and fixed shelf over the cam bolts and turn them to lock.",
+    "acts": [
+     {
+      "text": "Drop 2 cam locks into the bottom board holes nearest the side.",
+      "target": "camlocks-bottom-right"
+     },
+     {
+      "text": "Drop 2 cam locks into the fixed shelf holes nearest the side.",
+      "target": "camlocks-fixed-right"
+     },
+     {
+      "text": "Turn each cam lock clockwise until tight.",
+      "target": ""
+     }
+    ],
+    "pose": "on-right",
+    "view": "auto",
+    "tip": "Insert the cam lock with its opening facing the cam bolt, then turn it clockwise to pull the joint tight.",
+    "pages": [
+     9
+    ],
+    "people": 1,
+    "minutes": 4,
+    "tools": [
+     "flat_screwdriver"
+    ],
+    "wall": false,
+    "caution": false
+   },
+   {
+    "n": 5,
+    "title": "Fit and lock the top",
+    "text": "Stand the top board on its dowel holes at the top end of the side panel and lock it with 2 cam locks.",
+    "acts": [
+     {
+      "text": "Press the top board onto its dowel holes at the top end.",
+      "target": "top"
+     },
+     {
+      "text": "Drop 2 cam locks into the top board holes.",
+      "target": "camlocks-top-right"
+     },
+     {
+      "text": "Turn both cam locks clockwise until tight.",
+      "target": ""
+     }
+    ],
+    "pose": "on-right",
+    "view": "auto",
+    "tip": "Turn the top so the large cam lock holes face into the cabinet and the edge with the small hole faces the front.",
+    "pages": [
+     10
+    ],
+    "people": 1,
+    "minutes": 4,
+    "tools": [
+     "flat_screwdriver"
+    ],
+    "wall": false,
+    "caution": false
+   },
+   {
+    "n": 6,
+    "title": "Lower the other side panel",
+    "text": "Lower the left side panel onto the upright boards so its cam bolts and dowel holes meet the boards.",
+    "acts": [
+     {
+      "text": "Hold the left side panel with its cam bolts facing down.",
+      "target": "side-left"
+     },
+     {
+      "text": "Lower it onto the dowels of all four boards.",
+      "target": "side-left"
+     },
+     {
+      "text": "Press it down evenly until it sits flush.",
+      "target": "side-left"
+     }
+    ],
+    "pose": "on-right",
+    "view": "auto",
+    "tip": "Keep the plinth cutout at the bottom front so it matches the side on the floor.",
+    "pages": [
+     11
+    ],
+    "people": 2,
+    "minutes": 3,
+    "tools": [],
+    "wall": false,
+    "caution": false
+   },
+   {
+    "n": 7,
+    "title": "Lock the second side",
+    "text": "Set 6 cam locks into the top, fixed shelf and bottom board at the new side and turn them tight.",
+    "acts": [
+     {
+      "text": "Drop 6 cam locks into the holes next to the left side panel.",
+      "target": "camlocks-left-upper"
+     },
+     {
+      "text": "Turn each cam lock clockwise until tight.",
+      "target": ""
+     }
+    ],
+    "pose": "on-right",
+    "view": "auto",
+    "tip": "Check all joints are closed before tightening the last cam locks.",
+    "pages": [
+     11
+    ],
+    "people": 1,
+    "minutes": 5,
+    "tools": [
+     "flat_screwdriver"
+    ],
+    "wall": false,
+    "caution": false
+   },
+   {
+    "n": 8,
+    "title": "Slide in the back panel",
+    "text": "Turn the cabinet onto its front, unfold the back panel flat and slide it into the side grooves from the bottom end.",
+    "acts": [
+     {
+      "text": "Lay the cabinet on its front with the back facing up.",
+      "target": ""
+     },
+     {
+      "text": "Unfold the back panel along its crease.",
+      "target": "back"
+     },
+     {
+      "text": "Slide the back panel into the side grooves from the bottom end up to the top.",
+      "target": "back"
+     }
+    ],
+    "pose": "on-front",
+    "view": "auto",
+    "tip": "Unfold it fully flat and keep the white finished side facing into the cabinet.",
+    "pages": [
+     12
+    ],
+    "people": 2,
+    "minutes": 5,
+    "tools": [],
+    "wall": false,
+    "caution": false
+   },
+   {
+    "n": 9,
+    "title": "Fasten the back panel",
+    "text": "Fix the back panel to the top, fixed shelf and bottom board with 18 expanding sleeves and pins.",
+    "acts": [
+     {
+      "text": "Push 18 expanding sleeves through the back panel holes into the board edges.",
+      "target": "sleeves-back"
+     },
+     {
+      "text": "Press a pin into each sleeve until the head sits flat.",
+      "target": "pins-back"
+     }
+    ],
+    "pose": "on-front",
+    "view": "auto",
+    "tip": "Put the ribbed sleeve 151706 in first, then press the mushroom pin 151705 into it.",
+    "pages": [
+     13
+    ],
+    "people": 1,
+    "minutes": 10,
+    "tools": [],
+    "wall": false,
+    "caution": false
+   },
+   {
+    "n": 10,
+    "title": "Raise and fix to wall",
+    "text": "Stand the bookcase upright against the wall and fix it with the two wall brackets screwed to the top.",
+    "acts": [
+     {
+      "text": "Tip the bookcase upright and place it against the wall.",
+      "target": ""
+     },
+     {
+      "text": "Screw 2 brackets onto the top board with screws and washers.",
+      "target": "screws-top"
+     },
+     {
+      "text": "Fix each bracket to the wall with a washer and a suitable wall screw.",
+      "target": "washers-wall"
+     }
+    ],
+    "pose": "upright",
+    "view": "back-right",
+    "tip": "Wall screws and plugs are not included; choose ones that suit your wall.",
+    "pages": [
+     14
+    ],
+    "people": 2,
+    "minutes": 10,
+    "tools": [
+     "phillips_screwdriver"
+    ],
+    "wall": true,
+    "caution": true
+   },
+   {
+    "n": 11,
+    "title": "Insert the shelf pins",
+    "text": "Push 16 shelf pins into the side panel holes, 4 at each shelf height.",
+    "acts": [
+     {
+      "text": "Choose the height for each of the 4 adjustable shelves.",
+      "target": ""
+     },
+     {
+      "text": "Push 4 shelf pins into matching holes at each height (16 in all).",
+      "target": "shelfpins-right"
+     }
+    ],
+    "pose": "upright",
+    "view": "front",
+    "tip": "Use the same hole count at all four corners so the shelf sits level.",
+    "pages": [
+     15
+    ],
+    "people": 1,
+    "minutes": 5,
+    "tools": [],
+    "wall": false,
+    "caution": false
+   },
+   {
+    "n": 12,
+    "title": "Lay in the shelves",
+    "text": "Place the 4 adjustable shelves onto the shelf pins, two above and two below the fixed shelf.",
+    "acts": [
+     {
+      "text": "Lower 2 shelves onto the pins above the fixed shelf.",
+      "target": "shelves-upper"
+     },
+     {
+      "text": "Lower 2 shelves onto the pins below the fixed shelf.",
+      "target": "shelves-lower"
+     }
+    ],
+    "pose": "upright",
+    "view": "front",
+    "tip": "Make sure each shelf rests on all four pins.",
+    "pages": [
+     16
+    ],
+    "people": 1,
+    "minutes": 3,
+    "tools": [],
+    "wall": false,
+    "caution": false
+   }
+  ],
+  "assumptions": [
+   "Overall size 80 x 202 x 28 cm taken from the user note.",
+   "Particleboard thickness 1.6 cm for sides, top, fixed shelf, bottom, plinth and shelves; back panel 0.3 cm.",
+   "Top, fixed shelf and bottom fit between the sides (76.8 cm long) and run from the back panel to the front edge (26.8 cm deep).",
+   "Adjustable shelves estimated 76.2 x 26 cm.",
+   "Plinth rail estimated 6.4 cm high, set 1 cm back from the front edge.",
+   "Fixed shelf assumed centred in the interior (y 103.4 to 105.0); adjustable shelf heights are estimates.",
+   "The cabinet is read as lying on its right side in steps 2-7 (plinth cutout at bottom front, top to the right in the drawing).",
+   "Back panel assumed to slide into grooves 0.8 cm from the back edge, entering from the bottom end.",
+   "18 back fasteners assumed split 6 per fixed board (top, fixed shelf, bottom).",
+   "Cam lock faces: top board underside, fixed shelf underside, bottom board upper face (not clearly readable).",
+   "Hardware sizes are typical values; no 1:1 drawing was used.",
+   "Wall bracket leg lengths estimated 8 x 4 cm.",
+   "Boards (top, fixed shelf, bottom) span x -38.4..38.4 between the side inner faces and z -12.8..14, so their rear edges meet the front face of the back panel.",
+   "Back panel sits in side grooves 0.6 cm deep each side (x -39..39), so it overlaps the side panels by the groove depth; this is intended, not a clash.",
+   "Dowel holes in the side faces at z=+11 and z=-10 on each board's centre height; plinth dowels at y=1.6 and 4.8.",
+   "Cam bolts at z=+6 and z=-5 on each board's centre height; cam locks 3.4 cm in from the board ends (x=\u00b135) at the same z, from the underside of top and fixed shelf and the upper face of the bottom.",
+   "Back panel slide direction 'left' is read from the step 8 drawing (panel enters from the near-left end); check against the engine's on-front pose mapping to the bottom end.",
+   "Back fasteners: 6 per board at x=\u00b133, \u00b120, \u00b17, sleeve and pin share the same hole mouths on the rear face z=-13.1.",
+   "Wall brackets at x=\u00b130 with the corner at the top rear edge (y=202, z=-14), horizontal leg rotated to run forward along +z, vertical leg up against the wall; bracket sheet thickness taken as 0.2 cm for washer/screw heights.",
+   "Shelf pin holes 0.6 cm below each adjustable shelf underside (shelf undersides at y=39, 71, 136, 168), rows at z=+10 and z=-9.",
+   "Adjustable shelves 76.2 x 1.6 x 26 centred at z=1; heights are estimates matching two shelves above and two below the fixed shelf."
+  ]
+ },
+ "warnings": [],
+ "pageImages": {},
+ "usage": {
+  "model": "claude-opus-5-5",
+  "inputTokens": 6283,
+  "outputTokens": 24623,
+  "cacheReadTokens": 0,
+  "cacheWriteTokens": 76928,
+  "costUsd": 0.9022,
+  "seconds": 241
+ }
+}

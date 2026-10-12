@@ -42,3 +42,7 @@ next-env.d.ts
 
 # claude worktrees
 .claude/
+
+# generated
+public/pdf.worker.min.mjs
+.impeccable/hook.cache.json

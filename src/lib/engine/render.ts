@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import type { AssemblySpec, Warning } from "../spec/types";
 import { ENGINE_JS, ENGINE_SHELL } from "./assets.generated";
 
@@ -51,6 +52,29 @@ export function manualDescription(spec: AssemblySpec): string {
   return [`Step-by-step 3D assembly`, size, `${spec.steps.length} steps`, `${parts} parts`].filter(Boolean).join(" · ");
 }
 const round = (n: number) => Math.round(n * 10) / 10;
+
+const hashOf = (s: string) => `'sha256-${createHash("sha256").update(s, "utf8").digest("base64")}'`;
+
+/**
+ * The manual page plus a Content-Security-Policy that allows exactly its two inline
+ * scripts (by hash), three.js from the pinned CDN, and the fonts. Nothing else runs.
+ */
+export function renderManualPage(spec: AssemblySpec, opts: RenderOptions = {}): { html: string; csp: string } {
+  const html = renderManualHtml(spec, opts);
+  const inline = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map((m) => hashOf(m[1]));
+  const csp = [
+    "default-src 'none'",
+    `script-src ${inline.join(" ")} https://cdnjs.cloudflare.com`,
+    "style-src 'unsafe-inline' https://fonts.googleapis.com",
+    "font-src https://fonts.gstatic.com",
+    "img-src 'self' data: blob:",
+    "connect-src 'self'",
+    "base-uri 'none'",
+    "form-action 'none'",
+    "frame-ancestors 'self'",
+  ].join("; ");
+  return { html, csp };
+}
 
 /** The whole manual as one HTML document (viewer and download). */
 export function renderManualHtml(spec: AssemblySpec, opts: RenderOptions = {}): string {
